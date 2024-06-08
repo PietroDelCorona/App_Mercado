@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+.topbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #A68477;
+    border-bottom: 4px solid #F4E848;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    height: 70px;
+    z-index: 1000;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+}
+
+.right a,
+.mat-menu-trigger {
+    display: inline-block;
+    margin-left: 20px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-family: "Libre Baskerville", serif;
+    font-size: 18px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    vertical-align: middle;
+    margin-top: 3px
+}
+
+.mat-menu-trigger {
+    display: flex;
+    align-items: center;
+}
+
+.mat-menu-trigger mat-icon {
+    margin-left: 5px;
+}
+
+.right a:last-child,
+.mat-menu-trigger:last-child {
+    margin-right: 0;
+}
+
+
+.mat-menu-panel {
+    background-color: black;
+    color: black;
+    border: 1px solid #ccc;
+}
+
+.mat-menu-item {
+    padding: 10px 20px;
+}
+
+.mat-menu-item:hover {
+    background-color: #f0f0f0;
+}
+
+.mat-menu-item a {
+    text-decoration: none;
+    color: black;
+}
+
+.site-name {
+    font-family: "Libre Baskerville", serif;
+    color: white;
+    font-size: 28px;
+}
