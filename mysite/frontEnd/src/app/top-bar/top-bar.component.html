@@ -1,0 +1,23 @@
+<div class="topbar">
+    <div class="left">
+        <span class="site-name">Boa Compra</span>
+        <img src="../../../images/carrinho-de-compras.png" alt="Ícone do Mercado">
+
+    </div>
+    <div class="right">
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+                <a href="#">Compra Inteligente</a>
+            </button>
+            <button mat-menu-item>
+                <a href="#">Compra por Produto</a>
+            </button>
+        </mat-menu>
+        <button class="mat-menu-trigger" [matMenuTriggerFor]="menu">
+            Criar Lista <mat-icon>arrow_drop_down</mat-icon>
+        </button>
+
+        <a href="#">Estabelecimentos Cadastrados</a>
+        <a href="#"><img src="../../../images/user.png" alt="Ícone do Usuário"></a>
+    </div>
+</div>
