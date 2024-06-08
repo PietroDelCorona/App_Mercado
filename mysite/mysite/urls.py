@@ -22,4 +22,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', IndexView.as_view(), name='index'),
     path('auth/', include('social_django.urls', namespace='social')), 
+    path('api/', include('mercados.urls')),
+    path('api/', include('produtos.urls')),
+    path('api/', include('precos.urls')),
+    path('api/', include('usuarios.urls')),
+    path('api/', include('itens_lista_compra.urls')),
+    path('api/', include('listas_compra.urls'))
 ]
