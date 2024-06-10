@@ -10,18 +10,20 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    height: 70px;
+    height: 68px;
     z-index: 1000;
 }
 
 .left {
     display: flex;
     align-items: center;
+    margin-left: 10px;
 }
 
 .right {
     display: flex;
     align-items: center;
+    margin-right: 50px;
 }
 
 .right a,
@@ -78,4 +80,7 @@
     font-family: "Libre Baskerville", serif;
     color: white;
     font-size: 28px;
+}
+img{
+    width: 30px;
 }
