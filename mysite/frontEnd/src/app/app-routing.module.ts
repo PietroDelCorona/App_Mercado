@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomePageComponent } from './home-page/home-page.component';
+import { ListaInteligenteComponent } from './lista-inteligente/lista-inteligente.component';
 
-const routes: Routes = []; // Define your routes here
+const routes: Routes = [
+  { path: '', component: HomePageComponent},
+  { path: 'listaInteligente', component: ListaInteligenteComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,0 +1,25 @@
+<body>
+    <h1>Compra Inteligente</h1>
+
+    <div class="left">
+        <form (ngSubmit)="addProduct()">
+            <input class="inputBox" placeholder="Produto" type="text" name="productInput" [(ngModel)]="newProduct" />
+            <button class="addButton" type="submit">Add</button>
+        </form>
+
+        <div *ngIf="addedProducts.length > 0" class="productGrid">
+            <div class="productCard" *ngFor="let product of addedProducts">
+                <div class="box">
+                    <button class="deleteButton" (click)="deleteProduct(product)">✖</button>
+                    <div class="product-name">{{ product }}</div>
+                </div>
+            </div>
+        </div>
+
+        
+
+    </div>
+
+
+
+</body>

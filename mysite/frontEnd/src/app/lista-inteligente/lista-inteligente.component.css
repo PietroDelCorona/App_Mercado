@@ -1,0 +1,108 @@
+body {
+    background-color: #D6D6D6;
+    font-family: "DM Serif Display", serif;
+}
+
+h1 {
+    color: #F4E848;
+    text-shadow: 2px 2px 4px #4b4848cc;
+    font-size: 34px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-left: 31px;
+    margin-top: 50px;
+}
+
+.left {
+    margin-left: 31px;
+    margin-top: 20px; 
+}
+
+.inputBox {
+    width: 230px;
+    height: 43px;
+    font-size: 17px;
+    text-align: center;
+    border: 1px solid #BFBBBB;
+    border-radius: 22px;
+    outline: none;
+    background-color: #BFBBBB;
+    color: #4b4848;
+}
+
+.inputBox::placeholder {
+    text-align: center;
+    color: #979393d0;
+}
+
+.addButton {
+    margin-left: 10px;
+    border: 1px solid #3c8d1c;
+    border-radius: 22px;
+    width: 80px;
+    height: 43px;
+    background-color: #60b359;
+    transition: background-color 0.3s ease;
+}
+
+.addButton:hover {
+    background-color: #519951;
+}
+
+.addButton:active {
+    background-color: #3c8d1c;
+}
+
+.productGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 230px);
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.productCard {
+    display: flex;
+    justify-content: center;
+}
+
+.box {
+    background-color: #b79787;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    width: 100%;
+}
+.box:hover {
+    background-color: rgba(177, 146, 130, 0.961)
+}
+
+
+.product-name {
+    font-size: 17px;
+}
+.deleteButton {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    background-color: transparent;
+    color: rgb(150, 0, 0);
+    border: none;
+    width: 30px;
+    height: 30px;
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    transition: color 0.3s ease;
+}
+
+.deleteButton:hover {
+    color: rgb(255, 0, 0);
+}
+.productCard {
+    position: relative;
+}
+

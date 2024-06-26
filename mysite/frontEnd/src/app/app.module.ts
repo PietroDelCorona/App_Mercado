@@ -8,19 +8,23 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { BottomBarComponent } from './bottom-bar/bottom-bar.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { ListaInteligenteComponent } from './lista-inteligente/lista-inteligente.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopBarComponent,
     BottomBarComponent,
-    HomePageComponent
+    HomePageComponent,
+    ListaInteligenteComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatMenuModule,
-    MatIconModule
+    MatIconModule,
+    FormsModule 
   ],
   providers: [
     provideAnimationsAsync()
