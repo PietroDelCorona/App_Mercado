@@ -26,7 +26,8 @@ urlpatterns = [
     path('auth/', include('social_django.urls', namespace='social')), 
 ]
 '''
-
+#tirar esses comentários aqui
+'''
 from django.contrib import admin
 from django.urls import path, include  # new
 from django.views.generic.base import TemplateView
@@ -36,4 +37,14 @@ urlpatterns = [
     path("accounts/", include("accounts.urls")), #new
     path("accounts/", include("django.contrib.auth.urls")),  # new
     path("", TemplateView.as_view(template_name="home.html"), name="home"),  # new
+]
+'''
+from django.contrib import admin
+from django.urls import path, include
+from django.views.generic import TemplateView
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('accounts/', include('allauth.urls')),
+    path('', TemplateView.as_view(template_name='blog/index.html')),
 ]
