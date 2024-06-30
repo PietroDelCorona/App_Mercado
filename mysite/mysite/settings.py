@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'itens_lista_compra',
     'listas_compra',
     'usuarios',
-    'accounts'
+    'accounts',
+    'resultado',
 ]
 
 MIDDLEWARE = [
