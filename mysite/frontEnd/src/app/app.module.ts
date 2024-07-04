@@ -10,6 +10,9 @@ import { BottomBarComponent } from './bottom-bar/bottom-bar.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { ListaInteligenteComponent } from './lista-inteligente/lista-inteligente.component';
 import { FormsModule } from '@angular/forms';
+import { ListaPorProdutoComponent } from './lista-por-produto/lista-por-produto.component';
+import { EstabelecimentosCadastradosComponent } from './estabelecimentos-cadastrados/estabelecimentos-cadastrados.component';
+import { PaginaUsuarioComponent } from './pagina-usuario/pagina-usuario.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { FormsModule } from '@angular/forms';
     TopBarComponent,
     BottomBarComponent,
     HomePageComponent,
-    ListaInteligenteComponent
+    ListaInteligenteComponent,
+    ListaPorProdutoComponent,
+    EstabelecimentosCadastradosComponent,
+    PaginaUsuarioComponent
   ],
   imports: [
     BrowserModule,
