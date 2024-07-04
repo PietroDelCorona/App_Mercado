@@ -1,23 +1,23 @@
 <div class="topbar">
-    <div class="left">
+    <div class="left" routerLink="">
         <span class="site-name">Boa Compra</span>
         <img  style="margin-left: 7px;" src="../../../images/carrinho-de-compras.png" alt="Ícone do Mercado">
 
     </div>
     <div class="right">
-        <mat-menu #menu="matMenu">
-            <button mat-menu-item>
-                <a href="#">Compra Inteligente</a>
+        <mat-menu #menu="matMenu" >
+            <button mat-menu-item routerLink="listaInteligente">
+                <a href="listaInteligente">Compra Inteligente</a>
             </button>
-            <button mat-menu-item>
-                <a href="#">Compra por Produto</a>
+            <button mat-menu-item routerLink="listaPorProduto">
+                <a href="listaPorProduto">Compra por Produto</a>
             </button>
         </mat-menu>
         <button class="mat-menu-trigger" [matMenuTriggerFor]="menu">
             Criar Lista <mat-icon>arrow_drop_down</mat-icon>
         </button>
 
-        <a href="#">Estabelecimentos Cadastrados</a>
-        <a href="#"><img style="margin-top: 0px;" src="../../../images/user.png" alt="Ícone do Usuário"></a>
+        <a href="estabelecimentosCadastrados">Estabelecimentos Cadastrados</a>
+        <a href="paginaUsuario"><img style="margin-top: 0px;" src="../../../images/user.png" alt="Ícone do Usuário"></a>
     </div>
 </div>
