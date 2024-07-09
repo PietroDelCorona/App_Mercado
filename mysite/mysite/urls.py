@@ -14,13 +14,15 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
+'''
 from django.contrib import admin
 from django.urls import path, include
 from accounts.views import IndexView 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', IndexView.as_view(), name='index'),
+    path('', IndexView.as_view(), name='home'),
     path('auth/', include('social_django.urls', namespace='social')), 
     path('api/', include('mercados.urls')),
     path('api/', include('produtos.urls')),
@@ -28,4 +30,27 @@ urlpatterns = [
     path('api/', include('usuarios.urls')),
     path('api/', include('itens_lista_compra.urls')),
     path('api/', include('listas_compra.urls'))
+]
+'''
+#tirar esses comentários aqui
+'''
+from django.contrib import admin
+from django.urls import path, include  # new
+from django.views.generic.base import TemplateView
+
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path("accounts/", include("accounts.urls")), #new
+    path("accounts/", include("django.contrib.auth.urls")),  # new
+    path("", TemplateView.as_view(template_name="home.html"), name="home"),  # new
+]
+'''
+from django.contrib import admin
+from django.urls import path, include
+from django.views.generic import TemplateView
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('accounts/', include('allauth.urls')),
+    path('', TemplateView.as_view(template_name='blog/index.html')),
 ]

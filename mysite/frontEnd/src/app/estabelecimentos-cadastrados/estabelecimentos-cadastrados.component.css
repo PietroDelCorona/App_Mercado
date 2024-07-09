@@ -1,0 +1,19 @@
+body {
+    background-color: #D6D6D6;
+    font-family: "DM Serif Display", serif;
+}
+
+h1 {
+    color: #F4E848;
+    font-size: 36px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    background-color: #D6D6D6;
+}
+
+.title {
+    margin-left: 31px;
+    margin-top: 120px;
+    text-shadow: 2px 2px 4px #4b4848cc;
+    margin-bottom: 30px;
+}

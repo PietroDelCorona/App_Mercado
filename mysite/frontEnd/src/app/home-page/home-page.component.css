@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@700&display=swap');
+
+.banner {
+  background-image: url('../../../public/images/background.png');
+  padding: 120px;
+  text-align: center;
+  background-size: cover; 
+
+}
+
+h1 {
+  font-family: "Domine", serif;
+  font-weight: 600;
+  font-style: normal;
+  color: #D0A933;
+  font-size: 60px;
+  line-height: 70px;
+  text-shadow: 2px 2px 4px #7c7a7844;
+}
+
+.icon-banner {
+  background-color: #5a4545;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 46px;
+}
+
+.icon {
+  text-align: center;
+  color: #ffffff;
+}
+
+.icon img {
+  width: 50px;
+  display: block;
+  margin: 0 auto 10px; 
+}
+
+.icon p {
+  margin: 0; 
+  font-size: 14px;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 60px;
+}
+
+.left, .right {
+  text-align: justify; 
+}
+
+.left {
+  flex: 1; 
+  max-width: 33%;
+  padding: 40px;
+}
+
+.right {
+  flex: 2;
+  max-width: 66%;
+  padding: 40px 100px;
+  font-family: "Domine", serif;
+  font-size: 20px;
+  line-height: 30px;
+  margin-top: 20px;
+  color: #757575;
+}
+
+.left img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto; 
+}

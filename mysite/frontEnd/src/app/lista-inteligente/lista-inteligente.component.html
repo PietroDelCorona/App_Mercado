@@ -1,0 +1,43 @@
+<body>
+    <h1 class="title">Compra Inteligente</h1>
+
+    <div class="container">
+
+        <div class="left">
+            <form (ngSubmit)="addProduct()">
+                <input class="inputBox" placeholder="Produto" type="text" name="productInput"
+                    [(ngModel)]="newProduct" />
+                <button class="addButton" type="submit">Add</button>
+                <button class="calculateButton" *ngIf="addedProducts.length != 0" (click)="calculate()" type="submit">Calcular</button>
+            </form>
+
+            <div *ngIf="addedProducts.length > 0" class="productGrid">
+                <div class="productCard" *ngFor="let product of addedProducts">
+                    <div class="box">
+                        <button class="deleteButton" (click)="deleteProduct(product)">✖</button>
+                        <div class="product-name">{{ product }}</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="right">
+            <h1 class="title2">Melhores preços</h1>
+            <div class="card" *ngIf="showCard">
+                 Aaaaaaaaaaaa
+            </div>
+            <div class="card" *ngIf="showCard">
+                 Aaaaaaaaaaaa
+            </div>
+            <div class="emptyCard" *ngIf="!showCard">
+                 Adicione produtos e clique no botão para calcular os melhores preços.
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+</body>
