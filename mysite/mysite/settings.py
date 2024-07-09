@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'itens_lista_compra',
     'listas_compra',
     'usuarios',
-    'accounts'
+    'accounts',
     #'social_django',
     #'accounts',
     'django.contrib.sites',

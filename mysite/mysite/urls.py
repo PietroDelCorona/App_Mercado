@@ -53,4 +53,12 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('', TemplateView.as_view(template_name='blog/index.html')),
+    path('auth/', include('social_django.urls', namespace='social')), 
+    path('api-auth/', include('rest_framework.urls')),
+    path('api/', include('mercados.urls')),
+    path('api/', include('produtos.urls')),
+    path('api/', include('precos.urls')),
+    path('api/', include('usuarios.urls')),
+    path('api/', include('itens_lista_compra.urls')),
+    path('api/', include('listas_compra.urls'))
 ]
