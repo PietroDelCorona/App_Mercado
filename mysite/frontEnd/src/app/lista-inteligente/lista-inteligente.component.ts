@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ProdutoService } from './produto.service';
 
 @Component({
   selector: 'app-lista-inteligente',
@@ -29,4 +30,16 @@ export class ListaInteligenteComponent {
     this.showCard = true;
     // add lógica aqui dps
   }
+
+
+  constructor(private produtoService: ProdutoService) {}
+
+
+  obterTodosProdutos() {
+    this.produtoService.obterTodos().subscribe(
+      produtos => console.log(produtos)
+    )
+
+  }
+
 }
