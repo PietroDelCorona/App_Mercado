@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'corsheaders',
       
 ]
 
@@ -68,7 +69,12 @@ MIDDLEWARE = [
     'allauth.account.middleware.AccountMiddleware', # apagar se não der certo
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     #'social_django.middleware.SocialAuthExceptionMiddleware',  
+    'corsheaders.middleware.CorsMiddleware',
+
 ]
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:4200',
+)
 
 ROOT_URLCONF = 'mysite.urls'
 
