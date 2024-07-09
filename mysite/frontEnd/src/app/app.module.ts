@@ -13,6 +13,8 @@ import { FormsModule } from '@angular/forms';
 import { ListaPorProdutoComponent } from './lista-por-produto/lista-por-produto.component';
 import { EstabelecimentosCadastradosComponent } from './estabelecimentos-cadastrados/estabelecimentos-cadastrados.component';
 import { PaginaUsuarioComponent } from './pagina-usuario/pagina-usuario.component';
+import { HttpClientModule} from '@angular/common/http'
+import { HttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { PaginaUsuarioComponent } from './pagina-usuario/pagina-usuario.componen
     AppRoutingModule,
     MatMenuModule,
     MatIconModule,
-    FormsModule 
+    FormsModule,
+    HttpClientModule,
+
   ],
   providers: [
     provideAnimationsAsync()
