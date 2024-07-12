@@ -1,6 +1,3 @@
-
-
-# Create your views here.
 '''
 import os
 from django.shortcuts import render

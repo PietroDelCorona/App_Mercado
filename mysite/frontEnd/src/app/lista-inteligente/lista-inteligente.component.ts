@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ProdutoService } from './produto.service';
+import { IProduto } from './IProdutos'
 
 @Component({
   selector: 'app-lista-inteligente',
@@ -29,4 +31,20 @@ export class ListaInteligenteComponent {
     this.showCard = true;
     // add lógica aqui dps
   }
-}
+
+
+  constructor(private produtoService: ProdutoService) {}
+
+
+  obterTodosProdutos() {
+    this.produtoService.obterTodos().subscribe(
+      (produtos: IProduto[]) => {
+        const nomes = produtos.map(produto => produto.nome);
+        console.log(nomes);
+      },
+      error => {
+        console.error('Erro ao obter produtos', error);
+      }
+    );
+
+  }}

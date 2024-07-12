@@ -38,6 +38,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_django',
+    'rest_framework',
+    'mysite',
+    'mercados',
+    'produtos',
+    'precos',
+    'itens_lista_compra',
+    'listas_compra',
+    'usuarios',
+    'accounts',
     #'social_django',
     #'accounts',
     'django.contrib.sites',
@@ -45,6 +55,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'corsheaders',
       
 ]
 
@@ -58,7 +69,12 @@ MIDDLEWARE = [
     'allauth.account.middleware.AccountMiddleware', # apagar se não der certo
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     #'social_django.middleware.SocialAuthExceptionMiddleware',  
+    'corsheaders.middleware.CorsMiddleware',
+
 ]
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:4200',
+)
 
 ROOT_URLCONF = 'mysite.urls'
 
