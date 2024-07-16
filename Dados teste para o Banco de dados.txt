@@ -1,3 +1,6 @@
+Quando Adicionar restante dos dados testar comando: mercados = Mercado.objects.all() na view
+
+
 Fazer em ordem
 {
     "produtos": [

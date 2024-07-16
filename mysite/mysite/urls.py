@@ -19,6 +19,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from accounts.views import IndexView 
+from resultado.views import resultado_lista
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,7 +30,8 @@ urlpatterns = [
     path('api/', include('precos.urls')),
     path('api/', include('usuarios.urls')),
     path('api/', include('itens_lista_compra.urls')),
-    path('api/', include('listas_compra.urls'))
+    path('api/', include('listas_compra.urls')),
+    path('resultado_lista/<int:lista_id>/', resultado_lista, name='resultado_lista')
 ]
 '''
 #tirar esses comentários aqui
