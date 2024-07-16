@@ -3,7 +3,7 @@ from rest_framework.routers import DefaultRouter
 from .views import ListaCompraViewSet
 
 router = DefaultRouter()
-router.register(r'listas_compras', ListaCompraViewSet)
+router.register(r'listas-compras', ListaCompraViewSet)
 
 
 urlpatterns = [

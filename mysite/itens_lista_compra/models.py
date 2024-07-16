@@ -9,3 +9,4 @@ class ItemListaCompra(models.Model):
 
     def __str__(self):
         return f"{self.quantidade} de {self.produto.nome}"
+    

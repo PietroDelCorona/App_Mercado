@@ -1,17 +1,8 @@
-# views.py
-
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from rest_framework import viewsets
 from .models import ItemListaCompra
 from .serializers import ItemListaCompraSerializer
-
-class ItemListaCompraViewSet(viewsets.ModelViewSet):
-    queryset = ItemListaCompra.objects.all()
-    serializer_class = ItemListaCompraSerializer
-
-    # Outros métodos do ModelViewSet como list, retrieve, create, etc...
 
 class ItensListaCompraPorListaCompraId(APIView):
     def get(self, request, lista_compra_id):

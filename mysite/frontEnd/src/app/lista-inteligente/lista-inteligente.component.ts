@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { ProdutoService } from './produto.service';
+import { PageListaService } from './page-lista.service';
 import { IProduto } from './IProdutos'
+import { ILista } from './IListas';
 
 @Component({
   selector: 'app-lista-inteligente',
@@ -33,11 +34,23 @@ export class ListaInteligenteComponent {
   }
 
 
-  constructor(private produtoService: ProdutoService) {}
+  constructor(private pageListaService: PageListaService) {}
+
+  obterTodasListas() {
+    this.pageListaService.obterTodasList().subscribe(
+      (listas: ILista[]) => {
+        const lista = listas.map(listas => listas);
+        console.log(lista);
+      },
+      error => {
+        console.error('Erro ao obter listas', error);
+      }
+    );
+  }
 
 
   obterTodosProdutos() {
-    this.produtoService.obterTodos().subscribe(
+    this.pageListaService.obterTodosProd().subscribe(
       (produtos: IProduto[]) => {
         const nomes = produtos.map(produto => produto.nome);
         console.log(nomes);
