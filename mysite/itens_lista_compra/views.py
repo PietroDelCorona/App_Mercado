@@ -22,3 +22,4 @@ class ItensListaCompraPorListaCompraId(APIView):
             return Response(serializer.data, status=status.HTTP_200_OK)
         except ItemListaCompra.DoesNotExist:
             return Response({"message": "Itens de lista de compra não encontrados para este lista_compra_id"}, status=status.HTTP_404_NOT_FOUND)
+
