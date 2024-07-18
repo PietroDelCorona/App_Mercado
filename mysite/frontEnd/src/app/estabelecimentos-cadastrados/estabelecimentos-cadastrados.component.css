@@ -17,3 +17,48 @@ h1 {
     text-shadow: 2px 2px 4px #4b4848cc;
     margin-bottom: 30px;
 }
+
+
+.left {
+    margin-left: 31px;
+    margin-top: 20px;
+    flex: 2;
+}
+
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 31px;
+    margin-top: 20px;
+}
+
+
+.right {
+    flex: 2;
+    margin-left: 45px;
+}
+
+.card {
+    background-color: #b79787;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 32px;
+    margin-right: 120px;
+    height: 130%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover {
+    background-color: #af9183
+}
+
+.cardTitle{
+    font-size: 24px;
+    font-family: "Georgia", serif;
+}

@@ -1,7 +1,22 @@
 <body>
-  <h1 class="title">Compra por Produto</h1>
+  <h1 class="title">Estabelecimentos Cadastrados</h1>
 
+  <div class="container">
 
-  <h2>{{ mercado | json }}</h2>
+    <div class="left">
+      <div *ngFor="let m of mercado">
+        <div class="card">
+          <h3 class="cardTitle">
+            {{ m.nome }}</h3>
+            <P></P>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="right">
+
+    </div>
+  </div>
 
 </body>

@@ -3,6 +3,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { provideHttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { EstabelecimentoService } from './estabelecimento.service';
+export interface Mercado {
+  id: number,
+  nome: string,
+  endereco: string,
+  rua: string,
+  distancia: string
+}
 
 @Component({
   selector: 'app-estabelecimentos-cadastrados',
@@ -11,7 +18,7 @@ import { EstabelecimentoService } from './estabelecimento.service';
   providers: [EstabelecimentoService]
 })
 export class EstabelecimentosCadastradosComponent{
-  mercado: [] = [];
+  mercado: Mercado[] = [];
 
   constructor(private api: EstabelecimentoService){
     this.getMercados();
