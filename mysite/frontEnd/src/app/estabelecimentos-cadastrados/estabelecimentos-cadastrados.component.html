@@ -4,19 +4,34 @@
   <div class="container">
 
     <div class="left">
+      <p class="subtitle">Clique no Card para ver o endereço no mapa.</p>
       <div *ngFor="let m of mercado">
-        <div class="card">
+        <div class="card" (click)="setMercado(m.id)">
           <h3 class="cardTitle">
-            {{ m.nome }}</h3>
-            <P></P>
+            {{ m.nome }}
+          </h3>
+          <div class="cardBody">
+            <div class="addressSection">
+              <p class="sectionTitle">ENDEREÇO</p>
+              <p>{{ m.endereco }}</p>
+            </div>
+            <div class="distanceSection">
+              <p class="sectionTitle">DISTÂNCIA</p>
+              <p>{{ m.distancia }} km</p>
+            </div>
+
+          </div>
         </div>
       </div>
 
     </div>
 
     <div class="right">
+      <div id="iframeContainer">
+        <iframe width="90%" height="550"></iframe>
+      </div>
 
     </div>
-  </div>
+  </div>
 
 </body>
