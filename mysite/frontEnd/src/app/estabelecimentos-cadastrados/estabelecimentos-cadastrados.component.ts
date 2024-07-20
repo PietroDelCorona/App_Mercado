@@ -46,7 +46,7 @@ export class EstabelecimentosCadastradosComponent {
         distancia: '650m'
       }
     ];
-    
+
   }
 
   setMercado(id: number) {

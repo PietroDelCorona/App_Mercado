@@ -12,8 +12,6 @@ export class PageListaService {
 
   constructor(private httpclient: HttpClient) { }
 
-  idListaCompra = '2'
-
   obterItensList() {
     return this.httpclient.get<IItensLista[]>(this.baseurl + '/api/itens-lista-compra/filter/2/')
   }

@@ -18,10 +18,6 @@ export class ListaInteligenteComponent {
   ultimaListaCompra: ILista | undefined;
 
 
-
-
-
-
   addProduct() {
     if (this.newProduct.trim() !== '') {
       this.addedProducts.push(this.newProduct.trim());
@@ -39,6 +35,7 @@ export class ListaInteligenteComponent {
 
   calculate(){
     this.showCard = true;
+
     this.pageListaService.functionCalculate().subscribe(response => {
       console.log(response)
     })
@@ -56,16 +53,14 @@ export class ListaInteligenteComponent {
 
   criarLista() {
     //const atualDate =new Date();
-    //const formattedDate = ${atualDate. }/${(currentDate.getMonth() + 1).toString().padStart(2, '0')}/${currentDat.getDate().toString().padStart(2, '0')};
+    //const formattedDate = ${atualDate. }-${(currentDate.getMonth() + 1).toString().padStart(2, '0')}-${currentDat.getDate().toString().padStart(2, '0')};
     const novaLista = {
-      data_lista: '2024-07-24', // COMO ADICIONAR DATA YYYY/MM/DD
+      data_lista: '2024-07-24', // COMO ADICIONAR DATA YYYY-MM-DD
       usuario_id: 2 // preciso do login
     };
     this.pageListaService.criarListaNovaAoCalcular(novaLista).subscribe(response => {
       this.ObterUltimaLista();
       console.log('List added:', response);
-      //precisa date
-
     });
   }
 
@@ -77,12 +72,12 @@ export class ListaInteligenteComponent {
 
 
   // FUNÇÃO QUE ADICIONAR TODOS ITENS DA LISTA DO FRONT
-  //adicionarTodosItens() {
-    //for (var item of this.addedProducts) {
-      //this.newItem.produto_id = item.id //o "this.newProduct" vai virar um objeto?
-      //this.adicionarItem()
-    //}
-  //}
+  // adicionarTodosItens() {
+  //   for (var item of this.addedProducts) {
+  //     this.newItem.produto_id = item.id //o "this.newProduct" vai virar um objeto?
+  //     this.adicionarItem()
+  //   }
+  // }
 
 
   adicionarItem() {
