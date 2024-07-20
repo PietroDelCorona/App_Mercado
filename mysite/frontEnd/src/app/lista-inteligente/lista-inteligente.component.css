@@ -26,7 +26,14 @@ h1 {
 .left {
     margin-left: 31px;
     margin-top: 20px;
-    flex: 1;
+    flex: 2;
+}
+
+.label{
+    color: #8d8d8d;
+    margin-bottom: 0px;
+    margin-left: 10px;
+    font-size: 15px;
 }
 
 .inputBox {
@@ -39,8 +46,35 @@ h1 {
     outline: none;
     background-color: #BFBBBB;
     color: #4b4848;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 30px; 
+    position: relative;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%234b4848" d="M7 10l5 5 5-5z"/></svg>'); /* Custom arrow */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
 }
 
+.inputBox::-ms-expand {
+    display: none;
+}
+.inputBox option {
+    background-color: #dad6d6;
+    color: #573131;
+    padding: 10px; 
+}
+
+.inputBox option:hover {
+    background-color: #a3a3a3; 
+    color: #ffffff; 
+}
+
+.inputBox option:checked {
+    background-color: #8f8f8f;
+    color: #ffffff;
+}
 .inputBox::placeholder {
     text-align: center;
     color: #979393d0;
@@ -85,8 +119,8 @@ h1 {
 
 .productGrid {
     display: grid;
-    grid-template-columns: repeat(2, 230px);
-    gap: 20px;
+    grid-template-columns: repeat(2, 280px);
+    gap: 40px;
     margin-top: 20px;
 }
 
@@ -150,29 +184,78 @@ h1 {
 
 .right {
     flex: 3;
-    margin-left: 45px;
-}
-
-.card, .emptyCard {
+    margin-left: 5px;
+}.card, .emptyCard {
     background-color: #b79787;
     color: white;
-    padding: 15px;
+    padding: 7px;
     border-radius: 5px;
     text-align: center;
     margin-top: 32px;
     margin-right: 120px;
-    height: 130%;
+    height: 80%;
     display: flex;
-    justify-content: center;
     align-items: center;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+.card{
+    padding-top: 30px;
+}
 .card:hover {
-    background-color: #af9183
+    background-color: #af9183;
 }
 
-.emptyCard{
+.emptyCard {
     background-color: #b7978785;
     font-size: 18px;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.cardTitle {
+    font-size: 44px;
+    font-family: "Georgia", serif;
+    margin-bottom: 10px;
+    margin-left: 50px;
+    margin-right: 80px;
+}
+
+.cardBody {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+}
+
+.addressSection, .distanceSection {
+    width: 45%;
+    font-size: 21px;
+}
+
+.addressSection {
+    margin-left: 28px;
+}
+
+.distanceSection {
+    margin-left: 10px;
+}
+
+.sectionTitle {
+    font-weight: bold;
+    color: #F4E848;
+    margin-top: 10px;
+    text-align: left;
+    font-size: 26px;
+}
+
+.cardBody p {
+    margin: 5px 0;
+}
+
+.subtitle {
+    font-family: "Domine", serif;
+    font-size: 20px;
+    line-height: 30px;
+    color: #757575;
 }

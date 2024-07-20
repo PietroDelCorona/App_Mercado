@@ -1,46 +1,59 @@
 <body>
-  <h1 class="title">Compra Inteligente</h1>
+    <h1 class="title">Compra Inteligente</h1>
 
-  <div class="container">
+    <div class="container">
 
-      <div class="left">
-          <form (ngSubmit)="addProduct()">
-              <input class="inputBox" placeholder="Produto" type="text" name="productInput"
-                  [(ngModel)]="newProduct" />
-              <button class="addButton" type="submit">Add</button>
-              <button class="calculateButton" *ngIf="addedProducts.length != 0" (click)="calculate()" type="submit">Calcular</button>
-          </form>
+        <div class="left">
+            <form (ngSubmit)="addProduct()">
+                <p class="label">Produtos</p>
+                <select class="inputBox" [(ngModel)]="newProduct" (ngModelChange)="onProductChange($event)"
+                    name="products">
+                    <option *ngFor="let product of allProducts" [ngValue]="product">
+                        {{ product.nome }}
+                    </option>
+                </select>
 
-          <div *ngIf="addedProducts.length > 0" class="productGrid">
-              <div class="productCard" *ngFor="let product of addedProducts">
-                  <div class="box">
-                      <button class="deleteButton" (click)="deleteProduct(product)">✖</button>
-                      <div class="product-name">{{ product }}</div>
-                  </div>
-              </div>
-          </div>
+                <button class="addButton" type="submit">Add</button>
+                <button class="calculateButton" *ngIf="addedProducts.length != 0" (click)="calculate()"
+                    type="button">Calcular</button>
+            </form>
 
-          <div>
-            <h3>Produtos:</h3>
-            <button (click)="obterTodosProdutos()">Ver Produtos</button>
-          </div>
+            <div *ngIf="addedProducts.length > 0" class="productGrid">
+                <div class="productCard" *ngFor="let product of addedProducts">
+                    <div class="box">
+                        <button class="deleteButton" (click)="removeProduct(product)">✖</button>
+                        <div class="product-name">{{ product?.nome }}</div>
+                    </div>
+                </div>
+            </div>
 
-      </div>
 
-      <div class="right">
-          <h1 class="title2">Melhores preços</h1>
-          <div class="card" *ngIf="showCard">
-               Aaaaaaaaaaaa
-          </div>
-          <div class="card" *ngIf="showCard">
-               Aaaaaaaaaaaa
-          </div>
-          <div class="emptyCard" *ngIf="!showCard">
-               Adicione produtos e clique no botão para calcular os melhores preços.
-          </div>
 
-      </div>
-  </div>
+        </div>
+
+        <div class="right">
+            <h1 class="title2">Melhor preço</h1>
+            <div class="card" *ngIf="showCard">
+                <h3 class="cardTitle">
+                    {{ bestPrice?.mercado_mais_barato }}
+                </h3>
+                <div class="cardBody">
+                    <div class="addressSection">
+                        <p class="sectionTitle">ENDEREÇO</p>
+                        <p>{{ bestPrice?.endereco }}</p>
+                    </div>
+                    <div class="distanceSection">
+                        <p class="sectionTitle">VALOR</p>
+                        <p> R$ {{ bestPrice?.menor_preco }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="emptyCard" *ngIf="!showCard">
+                Adicione produtos e clique no botão para calcular os melhores preços.
+            </div>
+
+        </div>
+    </div>
 
 
 
