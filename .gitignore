@@ -1,3 +1,5 @@
+pedrovenv
+__pycache__/
 # Exclude specific Python cache directories
 /mysite/accounts/__pycache__
 /gabriela

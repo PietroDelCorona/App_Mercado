@@ -1,8 +1,0 @@
-pip install djangorestframework
-
-Criei os cruds e fiz :
-python manage.py makemigrations
-python manage.py migrate
-
-
-É preciso ver questão da tabela Usuarios e Accounts

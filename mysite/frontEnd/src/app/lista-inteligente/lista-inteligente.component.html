@@ -9,6 +9,7 @@
                   [(ngModel)]="newProduct" />
               <button class="addButton" type="submit">Add</button>
               <button class="calculateButton" *ngIf="addedProducts.length != 0" (click)="calculate()" type="submit">Calcular</button>
+
           </form>
 
           <div *ngIf="addedProducts.length > 0" class="productGrid">
@@ -20,10 +21,27 @@
               </div>
           </div>
 
+
           <div>
-            <h3>Produtos:</h3>
-            <button (click)="obterTodosProdutos()">Ver Produtos</button>
+            <h3>Produtos</h3>
+            <button (click)="obterTodosProdutos()">obterTodosProdutos</button>
           </div>
+
+          <div>
+            <h3>add item</h3>
+            <button (click)="adicionarItem()">add item</button>
+          </div>
+
+          <div>
+            <h3>criar lista nova</h3>
+            <button (click)="criarLista()">criar lista</button>
+          </div>
+
+          <div>
+            <h3>OBTER ULTIMA LISTA</h3>
+            <button (click)="ObterUltimaLista()">ULTIMA</button>
+          </div>
+
 
       </div>
 
@@ -36,7 +54,7 @@
                Aaaaaaaaaaaa
           </div>
           <div class="emptyCard" *ngIf="!showCard">
-               Adicione produtos e clique no botão para calcular os melhores preços.
+            <button (click)="obterItensDaLista()">Ver Itens Lista</button>
           </div>
 
       </div>
