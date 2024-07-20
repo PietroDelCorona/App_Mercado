@@ -15,6 +15,8 @@ import { EstabelecimentosCadastradosComponent } from './estabelecimentos-cadastr
 import { PaginaUsuarioComponent } from './pagina-usuario/pagina-usuario.component';
 import { HttpClientModule} from '@angular/common/http'
 import { HttpClient } from '@angular/common/http';
+import {DatePipe} from '@angular/common';
+
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { HttpClient } from '@angular/common/http';
 
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    DatePipe
+
   ],
   bootstrap: [AppComponent]
 })
