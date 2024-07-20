@@ -64,5 +64,5 @@ urlpatterns = [
     path('api/', include('usuarios.urls')),
     path('api/', include('itens_lista_compra.urls')),
     path('api/', include('listas_compra.urls')),
-    path('resultado_lista/<int:lista_id>/', resultado_lista, name='resultado_lista')
+    path('resultado_lista/', resultado_lista, name='resultado_lista')
 ]
