@@ -1,3 +1,4 @@
 pedrovenv
 __pycache__/
 .venv
+.pyc
