@@ -15,6 +15,7 @@ import { EstabelecimentosCadastradosComponent } from './estabelecimentos-cadastr
 import { PaginaUsuarioComponent } from './pagina-usuario/pagina-usuario.component';
 import { HttpClientModule} from '@angular/common/http'
 import { HttpClient } from '@angular/common/http';
+import { UserLoginComponent } from './user-login/user-login.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HttpClient } from '@angular/common/http';
     ListaInteligenteComponent,
     ListaPorProdutoComponent,
     EstabelecimentosCadastradosComponent,
-    PaginaUsuarioComponent
+    PaginaUsuarioComponent,
+    UserLoginComponent
   ],
   imports: [
     BrowserModule,
