@@ -43,7 +43,13 @@ export class EstabelecimentosCadastradosComponent {
         id: 3,
         nome: 'Zaffari Lima e Silva',
         endereco: 'R. Gen. Lima e Silva, 606',
-        distancia: '650m'
+        distancia: '700m'
+      }
+      {
+        id: 4,
+        nome: 'Mercado do Mestre',
+        endereco: 'Av. João Pessoa, 761',
+        distancia: '1.4km'
       }
     ];
 
@@ -75,8 +81,11 @@ export class EstabelecimentosCadastradosComponent {
     } else if (selectedMercado[0].nome == 'Zaffari Lima e Silva'){
       iframe.setAttribute('src', 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6908.08287829611!2d-51.226673582031246!3d-30.03566898708424!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951979aaaa6dd0ef%3A0xeba2b793fc7b5ad4!2sZaffari%20Lima%20e%20Silva!5e0!3m2!1sen!2sbr!4v1720573053383!5m2!1sen!2sbr');
       iframeContainer?.appendChild(iframe);
+    } else if (selectedMercado[0].nome == 'Mercado do Mestre'){
+      iframe.setAttribute('src', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6908.113604792474!2d-51.22841785768679!3d-30.035228211538513!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95197854d8aba6ef%3A0x65313d1e05a6041!2sMercado%20Do%20Mestre!5e0!3m2!1sen!2sbr!4v1721503597360!5m2!1sen!2sbr');
+      iframeContainer?.appendChild(iframe);
 
-    }
+    }
 
   }
 
