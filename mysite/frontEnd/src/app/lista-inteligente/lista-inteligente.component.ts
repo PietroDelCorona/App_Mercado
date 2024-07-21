@@ -12,87 +12,84 @@ import { DatePipe } from '@angular/common';
 })
 
 export class ListaInteligenteComponent {
-  newProduct: string = '';
-  addedProducts: string[] = [];
+  newProduct: IProduto | undefined | null = null;
+  addedProducts: IProduto[] = [];
   showCard: boolean = false;
+  allProducts: IProduto[] | undefined;
   ultimaListaCompra: ILista | undefined;
+  bestPrice: any;
 
-
-  addProduct() {
-    if (this.newProduct.trim() !== '') {
-      this.addedProducts.push(this.newProduct.trim());
-      this.newProduct = '';
-    }
-  }
-
-  deleteProduct(product: string){
-    console.log(product, 'produto!')
-    const index = this.addedProducts.indexOf(product);
-    if (index !== -1) {
-      this.addedProducts.splice(index, 1);
-    }
-  }
-
-  calculate(){
-    this.showCard = true;
-
-    this.pageListaService.functionCalculate().subscribe(response => {
-      console.log(response)
-    })
-  }
-
-
-  constructor(private pageListaService: PageListaService) {}
-
+  constructor(private pageListaService: PageListaService) { }
 
   ngOnInit() {
-    this.criarLista(); //CRIA NOVA LISTA AO ENTRAR NA PAGINA
+    this.obterTodosProdutos();
+    this.criarLista();
 
   }
 
+  addProduct() {
+    if (this.newProduct && !this.addedProducts.includes(this.newProduct)) {
+      this.addedProducts.push(this.newProduct);
+      this.newProduct = null;
+    } else {
+      console.warn('Produto já adicionado ou inválido');
+    }
+  }
+
+  onProductChange(event: any) {
+    this.newProduct = event;
+  }
+
+  removeProduct(product: IProduto) {
+    this.addedProducts = this.addedProducts.filter(p => p !== product);
+  }
+
+ calculate() {
+    this.adicionarTodosItens();
+      setTimeout(() => {
+        this.pageListaService.functionCalculate().subscribe(response => {
+          this.bestPrice = response;
+          this.showCard = true;
+
+        });
+    }, 1050);
+
+  }
 
   criarLista() {
-    //const atualDate =new Date();
-    //const formattedDate = ${atualDate. }-${(currentDate.getMonth() + 1).toString().padStart(2, '0')}-${currentDat.getDate().toString().padStart(2, '0')};
+    const atualDate = new Date();
+
     const novaLista = {
-      data_lista: '2024-07-24', // COMO ADICIONAR DATA YYYY-MM-DD
-      usuario_id: 2 // preciso do login
+      data_lista: atualDate.toISOString().slice(0, 10),
+      usuario_id: 2 // PENDENTE - esperar pietro
     };
     this.pageListaService.criarListaNovaAoCalcular(novaLista).subscribe(response => {
-      this.ObterUltimaLista();
+      this.obterUltimaLista();
       console.log('List added:', response);
     });
   }
 
-  newItem = {
-    quantidade: 1, // talvez estatico  ??
-    lista_compra_id: 2,
-    produto_id: 3 // vai vir do dropdown
-  };
+  adicionarTodosItens() {
+    for (var item of this.addedProducts) {
+      const newProduct = {
+        quantidade: 1,
+        lista_compra_id: this.ultimaListaCompra?.id,
+        produto_id: item.id
+      }
+      this.adicionarItem(newProduct);
+    }
+  }
 
-
-  // FUNÇÃO QUE ADICIONAR TODOS ITENS DA LISTA DO FRONT
-  // adicionarTodosItens() {
-  //   for (var item of this.addedProducts) {
-  //     this.newItem.produto_id = item.id //o "this.newProduct" vai virar um objeto?
-  //     this.adicionarItem()
-  //   }
-  // }
-
-
-  adicionarItem() {
-    this.pageListaService.addItemListaCompra(this.newItem).subscribe(response => {
+  adicionarItem(product: any) {
+    this.pageListaService.addItemListaCompra(product).subscribe(response => {
       console.log('Item added:', response);
     });
   };
 
-
-
-  ObterUltimaLista() {
+  obterUltimaLista() {
     this.pageListaService.obterUltimaListaCompra().subscribe(
       (lista: ILista) => {
         this.ultimaListaCompra = lista;
-        this.newItem.lista_compra_id = lista.id; // Atualiza o ID da lista de compras
         console.log('Última lista de compras:', lista);
       },
       error => {
@@ -100,7 +97,6 @@ export class ListaInteligenteComponent {
       }
     );
   }
-
 
   obterItensDaLista() {
     this.pageListaService.obterItensList().subscribe(
@@ -118,16 +114,13 @@ export class ListaInteligenteComponent {
   obterTodosProdutos() {
     this.pageListaService.obterTodosProd().subscribe(
       (produtos: IProduto[]) => {
-        const nomes = produtos.map(produto => produto.nome);
-        console.log(nomes);
+        this.allProducts = produtos;
       },
       error => {
         console.error('Erro ao obter produtos', error);
       }
     );
   }
-
-
 
 }
 

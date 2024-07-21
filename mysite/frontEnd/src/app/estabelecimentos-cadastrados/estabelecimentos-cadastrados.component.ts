@@ -44,7 +44,7 @@ export class EstabelecimentosCadastradosComponent {
         nome: 'Zaffari Lima e Silva',
         endereco: 'R. Gen. Lima e Silva, 606',
         distancia: '700m'
-      }
+      },
       {
         id: 4,
         nome: 'Mercado do Mestre',

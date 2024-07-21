@@ -33,25 +33,28 @@ def calcular_menor_preco(lista_id):
             else:
                 print(f"Preço não encontrado para produto_id {produto_id} no mercado_id {mercado.id}")
 
-        totais_por_mercado[mercado.nome] = total
+        totais_por_mercado[mercado.id] = (total, mercado.endereco)  # Salva total e endereço
 
     if totais_por_mercado:
-        mercado_mais_barato = min(totais_por_mercado, key=totais_por_mercado.get)
-        menor_preco = totais_por_mercado[mercado_mais_barato]
+        mercado_mais_barato_id = min(totais_por_mercado, key=lambda k: totais_por_mercado[k][0])
+        menor_preco, endereco = totais_por_mercado[mercado_mais_barato_id]
+        mercado_mais_barato = Mercado.objects.get(id=mercado_mais_barato_id).nome
     else:
         mercado_mais_barato = "Nenhum mercado"
         menor_preco = 0
+        endereco = "Não disponível"
 
-    return mercado_mais_barato, menor_preco
+    return mercado_mais_barato, menor_preco, endereco
 
 def resultado_lista(request):
     last_lista = get_last_created_lista()
     if last_lista:
         lista_id = last_lista.id
-        mercado_mais_barato, menor_preco = calcular_menor_preco(lista_id)
+        mercado_mais_barato, menor_preco, endereco = calcular_menor_preco(lista_id)
         return JsonResponse({
             'mercado_mais_barato': mercado_mais_barato,
-            'menor_preco': menor_preco
+            'menor_preco': menor_preco,
+            'endereco': endereco
         })
     else:
         return JsonResponse({'error': 'Nenhuma lista encontrada'}, status=404)
