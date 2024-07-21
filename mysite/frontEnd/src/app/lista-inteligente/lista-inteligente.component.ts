@@ -53,7 +53,6 @@ export class ListaInteligenteComponent {
 
         });
     }, 1050);
-
   }
 
   criarLista() {
