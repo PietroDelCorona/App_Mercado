@@ -23,8 +23,6 @@ export class ListaInteligenteComponent {
 
   ngOnInit() {
     this.obterTodosProdutos();
-    this.criarLista();
-
   }
 
   addProduct() {
@@ -45,7 +43,9 @@ export class ListaInteligenteComponent {
   }
 
  calculate() {
-    this.adicionarTodosItens();
+    this.criarLista();
+    setTimeout(()=> {
+      this.adicionarTodosItens();
       setTimeout(() => {
         this.pageListaService.functionCalculate().subscribe(response => {
           this.bestPrice = response;
@@ -53,6 +53,7 @@ export class ListaInteligenteComponent {
 
         });
     }, 1050);
+    },200)
   }
 
   criarLista() {
