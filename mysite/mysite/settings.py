@@ -55,12 +55,12 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
-    'corsheaders',
-      
+    'corsheaders',      
     'resultado',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -69,8 +69,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'allauth.account.middleware.AccountMiddleware', # apagar se não der certo
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    #'social_django.middleware.SocialAuthExceptionMiddleware',  
-    'corsheaders.middleware.CorsMiddleware',
+    #'social_django.middleware.SocialAuthExceptionMiddleware',    
 
 ]
 CORS_ORIGIN_WHITELIST = (

@@ -13,8 +13,8 @@ import { FormsModule } from '@angular/forms';
 import { ListaPorProdutoComponent } from './lista-por-produto/lista-por-produto.component';
 import { EstabelecimentosCadastradosComponent } from './estabelecimentos-cadastrados/estabelecimentos-cadastrados.component';
 import { PaginaUsuarioComponent } from './pagina-usuario/pagina-usuario.component';
-import { HttpClientModule} from '@angular/common/http'
-import { HttpClient } from '@angular/common/http';
+//import { HttpClientModule} from '@angular/common/http'
+import { provideHttpClient } from '@angular/common/http';
 import { UserLoginComponent } from './user-login/user-login.component';
 
 @NgModule({
@@ -35,11 +35,13 @@ import { UserLoginComponent } from './user-login/user-login.component';
     MatMenuModule,
     MatIconModule,
     FormsModule,
-    HttpClientModule,
+    //HttpClientModule,
+    
 
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    provideHttpClient()
   ],
   bootstrap: [AppComponent]
 })
