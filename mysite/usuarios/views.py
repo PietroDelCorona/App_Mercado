@@ -5,8 +5,8 @@ from .serializers import UsuarioSerializer
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
-from django.contrib.auth.hashers import make_password, check_password
 from django.contrib.auth import authenticate, login
+from django.views.decorators.csrf import csrf_exempt
 
 class UsuarioViewSet(viewsets.ModelViewSet):
     queryset = Usuario.objects.all()
@@ -32,12 +32,13 @@ def user_detail_view(request, pk):
 def signup_view(request):
     if request.method == 'POST':
         data = request.data
-        data['senha'] = make_password(data['senha'])  
         serializer = UsuarioSerializer(data=data)
         if serializer.is_valid():
-            serializer.save()
+            user = serializer.save()
+            user.set_password(data['senha'])  # Criptografa a senha
             return Response({'message': 'User created successfully'}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 @api_view(['PUT'])
 def user_update_view(request, pk):
@@ -46,11 +47,8 @@ def user_update_view(request, pk):
     except Usuario.DoesNotExist:
         return Response({'error': 'User not found'}, status=status.HTTP_404_NOT_FOUND)
 
-    data = request.data
-    if 'senha' in data:
-        data['senha'] = make_password(data['senha'])
-
-    serializer = UsuarioSerializer(user, data=data, partial=True)
+    
+    serializer = UsuarioSerializer(user, partial=True)
     if serializer.is_valid():
         serializer.save()
         return Response({'message': 'User updated successfully'}, status=status.HTTP_200_OK)
@@ -66,21 +64,22 @@ def user_delete_view(request, pk):
     user.delete()
     return Response({'message': 'User deleted successfully'}, status=status.HTTP_204_NO_CONTENT)
 
+@csrf_exempt
 @api_view(['POST'])
 def login_view(request):
-    if request.method == 'POST':
-        data = request.data
-        email = data.get('email')
-        password = data.get('senha')
+    data = request.data
+    email = data.get('email')
+    senha = data.get('senha')
 
-        if not email or not password:
-            return Response({'error': 'Email and password are required'}, status=status.HTTP_400_BAD_REQUEST)
+    if not email or not senha:
+        return Response({'error': 'Email and password are required'}, status=status.HTTP_400_BAD_REQUEST)
 
-        try:
-            user = Usuario.objects.get(email=email)
-            if check_password(password, user.senha):
-                return Response({'message': 'Login successful'}, status=status.HTTP_200_OK)
-            else:
-                return Response({'error': 'Invalid credentials'}, status=status.HTTP_400_BAD_REQUEST)
-        except Usuario.DoesNotExist:
-            return Response({'error': 'User not found'}, status=status.HTTP_404_NOT_FOUND)
+    try:
+        user = Usuario.objects.get(email=email)
+    except Usuario.DoesNotExist:
+        return Response({'error': 'User not found'}, status=status.HTTP_404_NOT_FOUND)
+
+    if user.check_password(senha):  # Verifica a senha criptografada
+        return Response({'message': 'Login successful'}, status=status.HTTP_200_OK)
+    else:
+        return Response({'error': 'Invalid credentials'}, status=status.HTTP_400_BAD_REQUEST)
