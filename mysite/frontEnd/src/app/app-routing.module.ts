@@ -5,13 +5,15 @@ import { ListaInteligenteComponent } from './lista-inteligente/lista-inteligente
 import { ListaPorProdutoComponent } from './lista-por-produto/lista-por-produto.component';
 import { EstabelecimentosCadastradosComponent } from './estabelecimentos-cadastrados/estabelecimentos-cadastrados.component';
 import { PaginaUsuarioComponent } from './pagina-usuario/pagina-usuario.component';
+import { UserLoginComponent } from './user-login/user-login.component';
 
 const routes: Routes = [
-  { path: '', component: HomePageComponent},
+  { path: '', component : UserLoginComponent},
+  { path: 'homepage', component: HomePageComponent},
   { path: 'listaInteligente', component: ListaInteligenteComponent },
   { path: 'listaPorProduto', component: ListaPorProdutoComponent },
   { path: 'estabelecimentosCadastrados', component: EstabelecimentosCadastradosComponent },
-  { path: 'paginaUsuario', component: PaginaUsuarioComponent }
+  { path: 'paginaUsuario', component: PaginaUsuarioComponent },  
 ];
 
 @NgModule({

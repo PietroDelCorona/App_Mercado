@@ -1,9 +1,7 @@
 pedrovenv
 __pycache__/
 # Exclude specific Python cache directories
-/mysite/accounts/__pycache__
-/gabriela
-/mysite/accounts/__pycache__
+__pycache__/
 
 # Ignore all .pyc files
 *.pyc
@@ -169,3 +167,5 @@ venv.bak/
 # Pyre type checker
 .pyre/
 /mysite/precos/__pycache__
+.venv
+.pyc

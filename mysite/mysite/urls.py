@@ -51,6 +51,11 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
 from resultado.views import resultado_lista
+from rest_framework.routers import DefaultRouter
+from usuarios.views import UsuarioViewSet, signup_view, login_view
+
+router = DefaultRouter()
+router.register(r'usuarios', UsuarioViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -64,5 +69,10 @@ urlpatterns = [
     path('api/', include('usuarios.urls')),
     path('api/', include('itens_lista_compra.urls')),
     path('api/', include('listas_compra.urls')),
-    path('resultado_lista/', resultado_lista, name='resultado_lista')
+    path('resultado_lista/', resultado_lista, name='resultado_lista'),
+    path('resultado_lista/<int:lista_id>/', resultado_lista, name='resultado_lista'),
+    path('api/usuarios/', include('usuarios.urls')),
+    path('api/signup/', signup_view, name='signup'),
+    path('api/login/', login_view, name='login'),
 ]
+    
