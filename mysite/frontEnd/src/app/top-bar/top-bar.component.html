@@ -9,9 +9,6 @@
             <button mat-menu-item routerLink="listaInteligente">
                 <a href="listaInteligente" *ngIf="currentRoute !== '/'">Compra Inteligente</a>
             </button>
-            <button mat-menu-item routerLink="listaPorProduto">
-                <a href="listaPorProduto" *ngIf="currentRoute !== '/'">Compra por Produto</a>
-            </button>
         </mat-menu>
         <button class="mat-menu-trigger" [matMenuTriggerFor]="menu" *ngIf="currentRoute !== '/'">
             Criar Lista <mat-icon>arrow_drop_down</mat-icon>
