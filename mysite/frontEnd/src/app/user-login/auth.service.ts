@@ -6,7 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  private baseUrl = 'http://127.0.0.1:8000/api'; 
+  private baseUrl = 'http://127.0.0.1:8000/api';
+  private userId: any;
+
   constructor(private http: HttpClient) { }
 
   signup(signupObj: any): Observable<any> {
@@ -15,6 +17,14 @@ export class AuthService {
 
   login(loginObj: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/login/`, loginObj);
+  }
+
+  setUserId(id: any): void {
+    this.userId = id;
+  }
+
+  getUserId(): any {
+    return this.userId;
   }
 }
 

@@ -18,8 +18,7 @@ def get_last_created_lista():
 def calcular_menor_preco(lista_id):
     itens = ItemListaCompra.objects.filter(lista_compra_id=lista_id)
     totais_por_mercado = {}
-    mercados = Mercado.objects.all()  # Corrigido de 'Mercados' para 'Mercado'
-
+    mercados = Mercado.objects.all() 
     for mercado in mercados:
         total = 0
         for item in itens:
@@ -33,7 +32,7 @@ def calcular_menor_preco(lista_id):
             else:
                 print(f"Preço não encontrado para produto_id {produto_id} no mercado_id {mercado.id}")
 
-        totais_por_mercado[mercado.id] = (total, mercado.endereco)  # Salva total e endereço
+        totais_por_mercado[mercado.id] = (total, mercado.endereco)
 
     if totais_por_mercado:
         mercado_mais_barato_id = min(totais_por_mercado, key=lambda k: totais_por_mercado[k][0])

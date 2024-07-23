@@ -3,7 +3,7 @@ import { PageListaService } from './page-lista.service';
 import { IProduto } from './IProdutos'
 import { ILista } from './IListas';
 import { IItensLista } from './IItensLista';
-import { DatePipe } from '@angular/common';
+import {AuthService} from '../user-login/auth.service'
 
 @Component({
   selector: 'app-lista-inteligente',
@@ -18,12 +18,15 @@ export class ListaInteligenteComponent {
   allProducts: IProduto[] | undefined;
   ultimaListaCompra: ILista | undefined;
   bestPrice: any;
+  
+
 
   constructor(private pageListaService: PageListaService) { }
 
   ngOnInit() {
     this.obterTodosProdutos();
   }
+
 
   addProduct() {
     if (this.newProduct && !this.addedProducts.includes(this.newProduct)) {
@@ -61,7 +64,7 @@ export class ListaInteligenteComponent {
 
     const novaLista = {
       data_lista: atualDate.toISOString().slice(0, 10),
-      usuario_id: 2 // PENDENTE - esperar pietro
+      usuario_id: 6
     };
     this.pageListaService.criarListaNovaAoCalcular(novaLista).subscribe(response => {
       this.obterUltimaLista();

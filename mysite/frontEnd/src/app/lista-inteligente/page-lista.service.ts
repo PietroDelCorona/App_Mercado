@@ -9,8 +9,18 @@ import { IItensLista } from './IItensLista';
 })
 export class PageListaService {
   baseurl = "http://127.0.0.1:8000";
+  private userId: any;
+
 
   constructor(private httpclient: HttpClient) { }
+
+  setUserId(id: any): void {
+    this.userId = id;
+  }
+
+  getUserId(): any {
+    return this.userId;
+  }
 
   obterItensList() {
     return this.httpclient.get<IItensLista[]>(this.baseurl + '/api/itens-lista-compra/filter/2/')

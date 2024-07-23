@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './auth.service';
 import { Router } from '@angular/router';
+import {PageListaService} from '../lista-inteligente/page-lista.service'
 
 @Component({
   selector: 'app-user-login',
@@ -20,7 +21,7 @@ export class UserLoginComponent implements OnInit {
     senha: ''
   };
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router, private pageListaService: PageListaService) { }
 
   ngOnInit(): void { }
 
@@ -43,7 +44,8 @@ export class UserLoginComponent implements OnInit {
     this.authService.login(this.loginObj).subscribe({
       next: (response: any) => {
         console.log('Login successful', response);
-        this.router.navigate(['/homepage']); 
+        this.pageListaService.setUserId(response.id_usuario);  
+        this.router.navigate(['/homepage']);
       },
       error: (error: any) => {
         console.log('Login error', error);
@@ -52,6 +54,3 @@ export class UserLoginComponent implements OnInit {
     });
   }
 }
-
-
-

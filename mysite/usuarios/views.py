@@ -80,6 +80,6 @@ def login_view(request):
         return Response({'error': 'User not found'}, status=status.HTTP_404_NOT_FOUND)
 
     if user.check_password(senha):  # Verifica a senha criptografada
-        return Response({'message': 'Login successful'}, status=status.HTTP_200_OK)
+        return Response({'message': 'Login successful', 'id_usuario': user.id}, status=status.HTTP_200_OK)
     else:
         return Response({'error': 'Invalid credentials'}, status=status.HTTP_400_BAD_REQUEST)
