@@ -12,7 +12,7 @@ export class UsuarioService {
   constructor(private httpclient: HttpClient) { }
 
   obterNomeUsuario(): Observable<string> {
-    return this.httpclient.get<IUsuario>(this.baseurl + '/api/usuarios/2/').pipe(
+    return this.httpclient.get<IUsuario>(this.baseurl + '/api/usuarios/6/').pipe(
       map(usuario => usuario.nome)
     );
   }
